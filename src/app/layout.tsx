@@ -33,7 +33,7 @@ export default function RootLayout({
         <body className="h-screen bg-background overflow-hidden w-full">
           <div className="main-cont flex h-full w-full ">
             <div className="sidebar p-2  ">
-              <PrimarySidebar activeHeaderTab="overview" />
+              <PrimarySidebar />
             </div>
             {children}
           </div>
