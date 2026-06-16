@@ -5,9 +5,10 @@ import { auth } from "../../../lib/auth";
 export default async function Page() {
   const session = await auth();
 
-  if (!session?.user?.id) {
-    return <div>Unauthorized</div>;
+  if (!session?.user) {
+    return <div>Unauthorized tr</div>;
   }
+  console.log(session)
 
   // ----------------------------------------------------
   // 1. Try find existing workspace
