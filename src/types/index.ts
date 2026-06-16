@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 export interface Task {
   id: string;
   title: string;
@@ -74,3 +69,24 @@ export interface ThemeContextType {
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
 }
+
+export type NavigationWorkspace = {
+  id: string;
+  name: string;
+  slug: string;
+
+  spaces: {
+    id: string;
+    name: string;
+
+    folders: {
+      id: string;
+      name: string;
+
+      pages: {
+        id: string;
+        name: string;
+      }[];
+    }[];
+  }[];
+};

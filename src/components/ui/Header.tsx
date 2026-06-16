@@ -24,11 +24,25 @@ import {
 import { Space } from "../../types";
 
 interface HeaderProps {
-  spaces: Space[];
+  spaces: {
+    id: string;
+    name: string;
+
+    folders: {
+      id: string;
+      name: string;
+
+      pages: {
+        id: string;
+        name: string;
+      }[];
+    }[];
+  }[];
   selectedSpaceId: string;
   onActionClick: () => void;
   activeHeaderTab: string;
   setActiveHeaderTab: (activeHeaderTab: string) => void;
+  workspaseName: string;
 }
 
 export default function Header({
@@ -37,6 +51,7 @@ export default function Header({
   onActionClick,
   activeHeaderTab,
   setActiveHeaderTab,
+  workspaseName,
 }: HeaderProps) {
   const selectedSpace =
     spaces.find((s) => s.id === selectedSpaceId) || spaces[0];
@@ -59,7 +74,7 @@ export default function Header({
         >
           <div className="flex items-center gap-1 text-tertiary-custom  cursor-pointer transition-colors">
             <Folder className="w-4 h-4 " />
-            <span>Engineering</span>
+            <span>{workspaseName}</span>
           </div>
 
           <ChevronRight className="w-3.5 h-3.5 text-gray-400" />

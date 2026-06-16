@@ -11,8 +11,8 @@ import {
 import ThemeToggle from "./ToggleButton";
 import Link from "next/link";
 import { useState } from "react";
-
-
+import SignOutAction from "../../../lib/actions/SignOUtAction";
+import LogoutAction from "../../../lib/actions/LogoutAction";
 export default function PrimarySidebar() {
   const navItems = [
     {
@@ -21,7 +21,7 @@ export default function PrimarySidebar() {
       icon: Home,
       title: "Overview Dashboard",
       isActive: true,
-      href: "/",
+      href: "/app",
     },
     {
       id: "calendar",
@@ -29,7 +29,7 @@ export default function PrimarySidebar() {
       icon: Calendar,
       title: "Planner / Calendar",
       isActive: false,
-      href: "calender",
+      href: "/app/calender",
     },
     {
       id: "chat",
@@ -37,7 +37,7 @@ export default function PrimarySidebar() {
       icon: MessageSquare,
       title: "Workspace Chat",
       isActive: false,
-      href: "chat",
+      href: "/app/chat",
     },
   ];
 
@@ -100,6 +100,7 @@ export default function PrimarySidebar() {
       >
         <ThemeToggle />
 
+        {/* Profile */}
         <div className="flex flex-col items-center gap-1.5 group">
           <button
             id="rail-btn-profile"
@@ -110,6 +111,24 @@ export default function PrimarySidebar() {
           </button>
           <span className="text-[9px] font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200 transition-colors whitespace-nowrap">
             Profile
+          </span>
+        </div>
+
+        {/* Logout Button (NEW) */}
+        <div className="flex flex-col items-center gap-1.5 group">
+          <form action={LogoutAction}>
+            <button
+              id="rail-btn-logout"
+              className="w-10 h-10 flex items-center justify-center rounded-xl bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white transition-all"
+              title="Log out"
+              type="submit"
+            >
+              <LogOut className="w-5 h-5" />
+            </button>
+          </form>
+
+          <span className="text-[9px] font-medium text-red-500/70 group-hover:text-red-500 transition-colors whitespace-nowrap">
+            Logout
           </span>
         </div>
       </div>
