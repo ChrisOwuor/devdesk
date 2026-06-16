@@ -11,7 +11,6 @@ import {
 import ThemeToggle from "./ToggleButton";
 import Link from "next/link";
 import { useState } from "react";
-import SignOutAction from "../../../lib/actions/SignOUtAction";
 import LogoutAction from "../../../lib/actions/LogoutAction";
 export default function PrimarySidebar() {
   const navItems = [
