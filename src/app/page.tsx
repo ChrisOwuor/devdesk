@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -5,7 +6,10 @@ export default function LandingPage() {
     <div className="min-h-screen bg-background text-text-primary w-full">
       {/* NAVBAR */}
       <header className="flex items-center justify-between px-6 md:px-10 py-5 border-b border-border">
-        <div className="text-lg font-semibold tracking-tight">DevDesk</div>
+        <div className="text-lg font-semibold tracking-tight flex items-center justify-center">
+          <Image src="logo3.svg" alt="n" width={45} height={15} />{" "}
+          <span>Devdesk</span>
+        </div>
 
         <div className="flex items-center gap-3">
           <Link

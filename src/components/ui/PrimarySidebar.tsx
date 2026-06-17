@@ -12,6 +12,7 @@ import ThemeToggle from "./ToggleButton";
 import Link from "next/link";
 import { useState } from "react";
 import LogoutAction from "../../../lib/actions/LogoutAction";
+import Image from "next/image";
 export default function PrimarySidebar() {
   const navItems = [
     {
@@ -52,6 +53,7 @@ export default function PrimarySidebar() {
         id="rail-actions-list"
         className="flex flex-col gap-4 w-full items-center"
       >
+        <Image src="logo3.svg" alt="n" width={45} height={15} />{" "}
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeId === item.id;

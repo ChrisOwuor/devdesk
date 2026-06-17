@@ -4,7 +4,20 @@ import { registerSchema } from "../validations/auth";
 import prisma from "../prisma";
 import bcrypt from "bcryptjs";
 
-export async function registerAction(_: any, formData: FormData) {
+export type RegisterActionState = {
+  error?: string;
+  success?: boolean;
+  fieldErrors?: {
+    name?: string[];
+    email?: string[];
+    password?: string[];
+  };
+};
+
+export async function registerAction(
+  _: RegisterActionState | null,
+  formData: FormData,
+): Promise<RegisterActionState> {
   const raw = {
     name: formData.get("name"),
     email: formData.get("email"),
@@ -15,7 +28,8 @@ export async function registerAction(_: any, formData: FormData) {
 
   if (!parsed.success) {
     return {
-      error: "Invalid form data",
+      error: "Please fix the highlighted fields.",
+      fieldErrors: parsed.error.flatten().fieldErrors,
     };
   }
 
